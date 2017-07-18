@@ -111,6 +111,11 @@
 			<!--<groupId>org.thymeleaf.extras</groupId>-->
 			<!--<artifactId>thymeleaf-extras-springsecurity4</artifactId>-->
 		<!--</dependency>-->
+		<!--权限管理的-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 
 		<!--fastjson-->
 		<dependency>
@@ -138,6 +143,12 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.qiniu</groupId>
+			<artifactId>qiniu-java-sdk</artifactId>
+			<version>7.2.7</version>
 		</dependency>
 
 	</dependencies>
