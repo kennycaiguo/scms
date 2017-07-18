@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="keywords" content="scclui框架"/>
+    <meta name="description" content="scclui为轻量级的网站后台管理系统模版。"/>
+    <title>后台登录页</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/acommon/layui/css/layui.css}"/>
+    <link rel="stylesheet" th:href="@{/acommon/css/sccl.css}"/>
+
+</head>
+
+<body class="login-bg">
+<div class="login-box">
+    <header>
+        <h1>框架后台管理系统</h1>
+    </header>
+    <div class="layui-form-mid">
+        <font color="red" th:text="${message}"></font>
+    </div>
+    <div class="login-main">
+
+        <form action="/admin/dologin" class="layui-form" method="post">
+            <input name="__RequestVerificationToken" type="hidden" value=""/>
+            <div class="layui-form-item">
+                <label class="login-icon">
+                    <i class="layui-icon"></i>
+                </label>
+                <input type="text" name="userName" lay-verify="userName" autocomplete="off" placeholder="这里输入登录名"
+                       class="layui-input"/>
+            </div>
+            <div class="layui-form-item">
+                <label class="login-icon">
+                    <i class="layui-icon"></i>
+                </label>
+                <input type="password" name="password" lay-verify="password" autocomplete="off" placeholder="这里输入密码"
+                       class="layui-input"/>
+            </div>
+            <div class="layui-form-item">
+                <div class="pull-left login-remember">
+                    <label>记住帐号？</label>
+
+                    <input type="checkbox" name="rememberMe" value="true" lay-skin="switch" title="记住帐号"/>
+                    <div class="layui-unselect layui-form-switch"><i></i></div>
+                </div>
+                <div class="pull-right">
+                    <button class="layui-btn layui-btn-primary" lay-submit="" lay-filter="login">
+                        <i class="layui-icon"></i> 登录
+                    </button>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </form>
+
+    </div>
+    <footer>
+        <p>xuan © www.aspku.com</p>
+    </footer>
+</div>
+<script type="text/html" id="code-temp">
+    <div class="login-code-box">
+        <input type="text" class="layui-input" id="code"/>
+        <img id="valiCode" src="/manage/validatecode?v=636150612041789540" alt="验证码">
+        </img>
+    </div>
+</script>
+
+<script th:src="@{/acommon/layui/layui.js}"></script>
+
+<!--<script src="../common/layui/layui.js"></script>-->
+<script>
+    //layui模块的使用
+    layui.use(['layer', 'form'], function () { // 依赖Layui的layer和form模块为例
+        var layer = layui.layer,
+            $ = layui.jquery,
+            form = layui.form();
+
+        form.verify({
+            userName: function (value) {
+                if (value === '')
+                    return '请输入用户名';
+            },
+            password: function (value) {
+                if (value === '')
+                    return '请输入密码';
+            }
+        });
+
+//        layer.msg('Hello World'); //最常用提示层
+
+        var errorCount = 0;
+
+        form.on('submit(login)', function (data) {
+            // 新的页
+//            window.location.href = "..common/page/index.html";
+            layer.msg('Hello World'); //最常用提示层
+//            layer.msg(data); //最常用提示层
+            console.log(data);
+//            return false; // 返回false 这样子不会跳转 要不可以执行 form action--> 或者 //            window.location.href = "..common/page/index.html";
+
+
+//            // 输错五次显示验证码
+//            if (errorCount > 5) {
+//             layer.open({
+//             title: '<img src="' + location.origin + '/Plugins/layui/images/face/7.gif" alt="[害羞]">输入验证码',
+//             type: 1,
+//             content: document.getElementById('code-temp').innerHTML,
+//             btn: ['确定'],
+//             yes: function (index, layero) {
+//             var $code = $('#code');
+//             if ($code.val() === '') {
+//             layer.msg('输入验证码啦，让我知道你是人类。');
+//             isCheck = false;
+//             } else {
+//             $('input[name=verifyCode]').val();
+//             var params = data.field;
+//             params.verifyCode = $code.val();
+//             submit($,params);
+//             layer.close(index);
+//             }
+//             },
+//             area: ['250px', '150px']
+//             });
+//             $('#valiCode').off('click').on('click', function () {
+//             this.src = '/manage/validatecode?v=' + new Date().getTime();
+//             });
+//             }else{
+//             submit($,data.field);
+//             }
+//
+//             return false; // 这样子不会跳转 要不可以执行 form action--> 或者 //            window.location.href = "..common/page/index.html";
+        });
+
+    });
+
+    /*function submit($,params){
+     $.post('/manage/login',params , function (res) {
+     if (!res.success) {
+     if (res.data !== undefined)
+     errorCount = res.data.errorCount
+     layer.msg(res.message,{icon:2});
+     }else
+     {
+     layer.msg(res.message,{icon:1},function(index){
+     layer.close(index);
+     location.href='/manage';
+     });
+     }
+     }, 'json');
+     }*/
+</script>
+</body>
+</html>
