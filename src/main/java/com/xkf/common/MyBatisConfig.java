@@ -39,10 +39,15 @@ public class MyBatisConfig {
     public DataSource getDataSource() throws Exception{
         System.out.println("MyBatisConfig getDataSource success");
         Properties props = new Properties();
-        props.put("driverClassName", env.getProperty("jdbc.driverClassName"));
-        props.put("url", env.getProperty("jdbc.url"));
-        props.put("username", env.getProperty("jdbc.username"));
-        props.put("password", env.getProperty("jdbc.password"));
+//        props.put("driverClassName", env.getProperty("jdbc.driverClassName"));
+//        props.put("url", env.getProperty("jdbc.url"));
+//        props.put("username", env.getProperty("jdbc.username"));
+//        props.put("password", env.getProperty("jdbc.password"));
+        props.put("driverClassName", env.getProperty("spring.datasource.driver-class-name"));
+        props.put("url", env.getProperty("spring.datasource.url"));
+        props.put("username", env.getProperty("spring.datasource.username"));
+        props.put("password", env.getProperty("spring.datasource.password"));
+
         return DruidDataSourceFactory.createDataSource(props); // 连接池 druid(阿里巴巴的框架)
     }
 

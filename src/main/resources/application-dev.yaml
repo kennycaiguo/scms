@@ -1,11 +1,11 @@
-###登录记住我的token加密key
-#remember:
-#  key: javajidi_com
-###actuator config,actuator运行在一个独立的webappcontext中，see AnnotationConfigEmbeddedWebApplicationContext
-#management:
-#  context-path: /management
-#  security:
-#    enabled: false
+##登录记住我的token加密key
+remember:
+  key: javajidi_com
+##actuator config,actuator运行在一个独立的webappcontext中，see AnnotationConfigEmbeddedWebApplicationContext
+management:
+  context-path: /management
+  security:
+    enabled: false
 
 spring:
   application:
@@ -43,11 +43,12 @@ spring:
   boot:
     admin:
     #用于将当前应用注册到Spring Boot Admin
-#      url: http://localhost:${server.port}${spring.boot.admin.context-path}
-#      context-path: /admin
+      url: http://localhost:${server.port}${spring.boot.admin.context-path}
+      context-path: /admin
   thymeleaf:
-#      prefix: classpath:/public/thymeleaf/
+      prefix: classpath:/public/thymeleaf/
       cache: false
 
 #blog:
+#  host: http://localhost:8080
 #  host: http://localhost:8686

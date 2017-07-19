@@ -151,6 +151,18 @@
 			<version>7.2.7</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-server -->
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-server</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-server-ui</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

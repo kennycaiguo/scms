@@ -1,7 +1,21 @@
 #设置应用的配置文件 dev 开发环境  prod生产环境 default默认
 spring:
   profiles:
-    active:dev
+    active: dev
+
+  thymeleaf:
+          mode: LEGACYHTML5
+
+mybatis:
+  mapperLocations: classpath:mapping/*.xml
+  typeAliasesPackage: com.xxx.entity
+
+## 自动部署 ？调试热启动不重启 ? 不用加这个?
+server:
+  jsp-servlet:
+    init-parameters:
+      development: true
+
 #除了spring.profiles.active来激活一个或者多个profile之外，还可以用spring.profiles.include来叠加profile
 #Spring Boot干货系列：常用属性汇总](http://tengj.top/2017/02/28/springbootconfig/)
 ## ===================================================================
